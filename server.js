@@ -1,4 +1,5 @@
 import express from "express";
+import compression from "compression";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -16,6 +17,7 @@ import {
 import { generatePDF } from "./scraper.js";
 
 const app = express();
+app.use(compression());
 
 const PORT = process.env.PORT || 3000;
 
