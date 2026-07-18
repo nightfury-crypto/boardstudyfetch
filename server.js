@@ -1,5 +1,4 @@
 import express from "express";
-import compression from "compression";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -17,7 +16,6 @@ import {
 import { generatePDF } from "./scraper.js";
 
 const app = express();
-app.use(compression());
 
 const PORT = process.env.PORT || 3000;
 
@@ -158,8 +156,8 @@ app.listen(PORT, () => {
     console.log("=================================");
     console.log(" PDF Generator Started");
     console.log("=================================");
-    console.log("");
-    console.log(`http://localhost:${PORT}`);
-    console.log("");
+    console.log(
+        `Server running on port ${PORT}`
+    );
 
 });
