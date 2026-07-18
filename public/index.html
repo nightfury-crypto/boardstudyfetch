@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes PDF Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+    <div class="background"></div>
+
+
+    <div class="container">
+
+
+        <div class="card">
+
+
+            <div class="logo">
+                📚
+            </div>
+
+
+            <h1>
+                Notes PDF Generator
+            </h1>
+
+
+            <p class="subtitle">
+                Convert image-based notes into a single PDF instantly
+            </p>
+
+
+
+            <div class="input-box">
+
+                <input id="url" type="url" placeholder="Paste notes webpage URL here">
+
+            </div>
+
+
+
+            <button id="generateBtn">
+
+                <span id="buttonText">
+                    Generate PDF
+                </span>
+
+                <span id="loader" class="loader hidden"></span>
+
+            </button>
+
+
+
+            <div id="progressArea" class="progress-area hidden">
+
+
+                <div class="status-row">
+
+                    <span id="status">
+                        Waiting...
+                    </span>
+
+
+                    <span id="percentage">
+                        0%
+                    </span>
+
+                </div>
+
+
+
+                <div class="progress-bar">
+
+
+                    <div id="progressFill" class="progress-fill">
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="counter">
+
+
+                    <span id="counter">
+                        0 / 0
+                    </span>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div id="success" class="success hidden">
+
+                ✅ PDF Generated Successfully
+
+            </div>
+
+
+
+            <div id="error" class="error hidden">
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

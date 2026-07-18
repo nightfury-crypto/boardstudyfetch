@@ -1,0 +1,544 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    color: white;
+
+}
+
+
+
+/* Animated background */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(135deg,
+            #667eea,
+            #764ba2,
+            #00c6ff);
+
+    background-size: 300% 300%;
+
+    animation: gradient 10s ease infinite;
+
+}
+
+
+
+@keyframes gradient {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+
+
+
+.container {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    padding: 20px;
+
+    position: relative;
+
+}
+
+
+
+
+
+.card {
+
+
+    padding: 45px 40px;
+
+
+    border-radius: 28px;
+
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+
+    backdrop-filter:
+        blur(25px);
+
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .25);
+
+
+    animation:
+        appear .6s ease;
+
+
+}
+
+
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+
+
+.logo {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .18);
+
+    margin: auto;
+
+    margin-bottom: 20px;
+
+
+}
+
+
+
+h1 {
+
+    text-align: center;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+}
+
+
+
+.subtitle {
+
+    text-align: center;
+
+    opacity: .8;
+
+    margin-top: 12px;
+
+    margin-bottom: 35px;
+
+    line-height: 1.5;
+
+}
+
+
+
+
+
+.input-box input {
+
+
+    width: 100%;
+
+
+    padding: 17px;
+
+
+    border: none;
+
+
+    outline: none;
+
+
+    border-radius: 14px;
+
+
+    font-size: 15px;
+
+
+    background:
+        rgba(255, 255, 255, .95);
+
+
+    color: #333;
+
+
+    margin-bottom: 20px;
+
+
+}
+
+
+
+
+
+
+button {
+
+
+    width: 100%;
+
+
+    padding: 17px;
+
+
+    border: none;
+
+
+    border-radius: 14px;
+
+
+    background: white;
+
+
+    color: #333;
+
+
+    font-size: 16px;
+
+
+    font-weight: 700;
+
+
+    cursor: pointer;
+
+
+    transition: .3s;
+
+
+    display: flex;
+
+
+    justify-content: center;
+
+
+    align-items: center;
+
+
+    gap: 12px;
+
+
+}
+
+
+
+
+button:hover {
+
+
+    transform:
+        translateY(-3px);
+
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, .25);
+
+
+}
+
+
+
+button:disabled {
+
+    opacity: .7;
+
+    cursor: not-allowed;
+
+}
+
+
+
+
+
+.loader {
+
+
+    width: 20px;
+
+
+    height: 20px;
+
+
+    border-radius: 50%;
+
+
+    border:
+        3px solid #ddd;
+
+
+    border-top:
+        3px solid #667eea;
+
+
+    animation:
+        spin .8s linear infinite;
+
+
+}
+
+
+
+
+@keyframes spin {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+
+
+
+
+
+.progress-area {
+
+
+    margin-top: 30px;
+
+
+    padding: 20px;
+
+
+    border-radius: 18px;
+
+
+    background:
+        rgba(255, 255, 255, .12);
+
+
+}
+
+
+
+.status-row {
+
+
+    display: flex;
+
+
+    justify-content: space-between;
+
+
+    margin-bottom: 12px;
+
+
+    font-size: 14px;
+
+
+}
+
+
+
+.progress-bar {
+
+
+    height: 12px;
+
+
+    background:
+        rgba(255, 255, 255, .25);
+
+
+    border-radius: 50px;
+
+
+    overflow: hidden;
+
+
+}
+
+
+
+
+.progress-fill {
+
+
+    height: 100%;
+
+
+    width: 0%;
+
+
+    border-radius: 50px;
+
+
+    background:
+        linear-gradient(90deg,
+            #00f260,
+            #0575e6);
+
+
+    transition:
+        width .4s ease;
+
+
+}
+
+
+
+
+.counter {
+
+
+    text-align: center;
+
+
+    margin-top: 12px;
+
+
+    font-size: 14px;
+
+
+}
+
+
+
+
+
+.success {
+
+
+    margin-top: 25px;
+
+
+    padding: 15px;
+
+
+    border-radius: 15px;
+
+
+    text-align: center;
+
+
+    background:
+        rgba(0, 255, 120, .25);
+
+
+}
+
+
+
+
+
+.error {
+
+
+    margin-top: 25px;
+
+
+    padding: 15px;
+
+
+    border-radius: 15px;
+
+
+    text-align: center;
+
+
+    background:
+        rgba(255, 0, 0, .25);
+
+
+}
+
+
+
+
+
+.hidden {
+
+    display: none;
+
+}
+
+
+
+
+@media(max-width:600px) {
+
+
+    .card {
+
+        padding: 35px 25px;
+
+    }
+
+
+    h1 {
+
+        font-size: 26px;
+
+    }
+
+
+}
