@@ -18,22 +18,17 @@ async function fetchBuffer(url) {
     return Buffer.from(await response.arrayBuffer());
 }
 
-async function imageToJPEG(buffer) {
-
+async function imageToPNG(buffer) {
     return await sharp(buffer)
-        .jpeg({
-            quality: 85,
-            mozjpeg: true
-        })
+        .png()
         .toBuffer();
-
 }
 
 async function downloadImage(url) {
 
     const buffer = await fetchBuffer(url);
 
-    return await imageToJPEG(buffer);
+    return await imageToPNG(buffer);
 
 }
 
@@ -175,7 +170,7 @@ export async function generatePDF(jobId, url) {
 
         try {
 
-            const image = await pdf.embedJpg(pngBuffer);
+            const image = await pdf.embedPng(pngBuffer);
 
             const width = image.width;
             const height = image.height;
@@ -209,9 +204,7 @@ export async function generatePDF(jobId, url) {
         status: "Saving PDF..."
     });
 
-    const pdfBytes = await pdf.save({
-        useObjectStreams: true
-    });
+    const pdfBytes = await pdf.save();
 
     // Ensure downloads directory exists
     await fs.mkdir(DOWNLOAD_DIR, {
@@ -233,6 +226,11 @@ export async function generatePDF(jobId, url) {
     const outputPath = path.join(
         DOWNLOAD_DIR,
         fileName
+    );
+
+    await fs.writeFile(
+        outputPath,
+        pdfBytes
     );
 
     updateJob(jobId, {
